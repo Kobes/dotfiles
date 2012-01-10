@@ -8,7 +8,3 @@ zstyle ':completion:*' insert-tab pending
 
 # Autocompletion arrow keys
 zstyle ':completion:*' menu select
-
-# Load completions for Ruby, Git, etc.
-autoload compinit
-compinit
