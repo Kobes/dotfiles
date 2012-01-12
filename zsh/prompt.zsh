@@ -14,9 +14,9 @@ git_dirty() {
   else
     if [[ $st == "nothing to commit (working directory clean)" ]]
     then
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+      echo " %{$fg_bold[grey]%}$(git_prompt_info)%{$reset_color%}"
     else
-      echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+      echo " %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
     fi
   fi
 }
@@ -36,14 +36,15 @@ need_push () {
   then
     echo " "
   else
-    echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
+    echo " %{$fg_bold[red]%}✗%{$reset_color%} "
   fi
 }
 
 rvm_prompt(){
   if $(which rvm &> /dev/null)
   then
-	  echo "%{$fg_bold[yellow]%}$(rvm tools identifier)%{$reset_color%}"
+# 	  echo "%{$fg_bold[white]%}$(rvm tools identifier)%{$reset_color%}"
+	  echo "%{$fg_bold[white]%}$(~/.rvm/bin/rvm-prompt)%{$reset_color%}"
 	else
 	  echo ""
   fi
@@ -72,9 +73,15 @@ directory_name(){
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rvm_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
+collapse_pwd(){
+    echo $(pwd | sed -e "s,^$HOME,~,")
+}
+
+export PROMPT=$'\n%{$fg_bold[cyan]%}%n%{$reset_color%} at %{$fg_bold[magenta]%}%m%{$reset_color%} in %{$fg_bold[yellow]%}${PWD/#$HOME/~}%{$reset_color%} \n> '
+#export PROMPT=$'\n$(rvm_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
-  export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
+#   export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
+  export RPROMPT=$'$(rvm_prompt)$(git_dirty)$(need_push)'
 }
 
 precmd() {
