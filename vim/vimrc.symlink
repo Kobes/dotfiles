@@ -26,7 +26,7 @@ set virtualedit=block      " allow virtual edit in visual block ..
 
 " lead with ,
 let mapleader = ","
-
+ 
 " exit to normal mode with 'jj'
 inoremap jj <ESC>
 
@@ -86,3 +86,6 @@ function! StripWhitespace ()
     exec ':%s/ \+$//gc'
 endfunction
 map ,s :call StripWhitespace ()<CR>
+ 
+" Pathogen
+call pathogen#infect() 
