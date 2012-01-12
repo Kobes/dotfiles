@@ -10,3 +10,5 @@ then
 fi
 
 alias flushdns="dscacheutil -flushcache"
+alias grep!="grep"
+alias grep="ack"
