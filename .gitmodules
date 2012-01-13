@@ -4,3 +4,9 @@
 [submodule "vim/vim.symlink/bundle/vimroom"]
 	path = vim/vim.symlink/bundle/vimroom
 	url = git@github.com:meurkens/vimroom.git
+[submodule "vim/vim.symlink/bundle/ZoomWin"]
+	path = vim/vim.symlink/bundle/ZoomWin
+	url = https://github.com/vim-scripts/ZoomWin.git
+[submodule "vim/vim.symlink/bundle/snipmate.vim"]
+	path = vim/vim.symlink/bundle/snipmate.vim
+	url = https://github.com/msanders/snipmate.vim.git
