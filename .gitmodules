@@ -1,3 +1,6 @@
 [submodule "vim/vim.symlink/bundle/vim-css-color"]
 	path = vim/vim.symlink/bundle/vim-css-color
 	url = https://github.com/skammer/vim-css-color.git
+[submodule "vim/vim.symlink/bundle/vimroom"]
+	path = vim/vim.symlink/bundle/vimroom
+	url = git@github.com:meurkens/vimroom.git
