@@ -22,7 +22,7 @@ git_dirty() {
 }
 
 git_prompt_info () {
- ref=$(/usr/bin/git symbolic-ref HEAD 2>/dev/null) || return
+ ref=$(/usr/bin/git symbolic-ref HEAD 2>/dev/null) || (echo "" & return)
 # echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
  echo "${ref#refs/heads/}"
 }
@@ -34,7 +34,10 @@ unpushed () {
 need_push () {
   if [[ $(unpushed) == "" ]]
   then 
-    echo " %{$fg_bold[white]%}✔%{$reset_color%}"
+    if [[ $(git_prompt_info) != "" ]]
+    then
+      echo " %{$fg_bold[white]%}✔%{$reset_color%}"
+    fi
   else
     echo " %{$fg_bold[red]%}✗%{$reset_color%}"
   fi
