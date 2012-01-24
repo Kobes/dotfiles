@@ -1,0 +1,15 @@
+[submodule "vim/vim.symlink/bundle/vim-css-color"]
+	path = vim/vim.symlink/bundle/vim-css-color
+	url = https://github.com/skammer/vim-css-color.git
+[submodule "vim/vim.symlink/bundle/vimroom"]
+	path = vim/vim.symlink/bundle/vimroom
+	url = git@github.com:meurkens/vimroom.git
+[submodule "vim/vim.symlink/bundle/ZoomWin"]
+	path = vim/vim.symlink/bundle/ZoomWin
+	url = https://github.com/vim-scripts/ZoomWin.git
+[submodule "vim/vim.symlink/bundle/snipmate"]
+	path = vim/vim.symlink/bundle/snipmate
+	url = https://github.com/msanders/snipmate.vim.git
+[submodule "vim/vim.symlink/bundle/Decho"]
+	path = vim/vim.symlink/bundle/Decho
+	url = https://github.com/vim-scripts/Decho.git

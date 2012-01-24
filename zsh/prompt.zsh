@@ -14,7 +14,7 @@ git_dirty() {
   else
     if [[ $st == "nothing to commit (working directory clean)" ]]
     then
-      echo " %{$fg[green]%}$(git_prompt_info)%{$reset_color%}"
+      echo " %{$fg[white]%}$(git_prompt_info)%{$reset_color%}"
     else
       echo " %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
     fi
@@ -22,7 +22,7 @@ git_dirty() {
 }
 
 git_prompt_info () {
- ref=$(/usr/bin/git symbolic-ref HEAD 2>/dev/null) || return
+ ref=$(/usr/bin/git symbolic-ref HEAD 2>/dev/null) || (echo "" & return)
 # echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
  echo "${ref#refs/heads/}"
 }
@@ -33,10 +33,13 @@ unpushed () {
 
 need_push () {
   if [[ $(unpushed) == "" ]]
-  then
-    echo " "
+  then 
+    if [[ $(git_prompt_info) != "" ]]
+    then
+      echo " %{$fg_bold[white]%}✔%{$reset_color%}"
+    fi
   else
-    echo " %{$fg_bold[red]%}✗%{$reset_color%} "
+    echo " %{$fg_bold[red]%}✗%{$reset_color%}"
   fi
 }
 
@@ -78,9 +81,7 @@ collapse_pwd(){
 }
 
 export PROMPT=$'\n%{$fg_bold[cyan]%}%n%{$reset_color%} at %{$fg_bold[magenta]%}%m%{$reset_color%} in %{$fg_bold[yellow]%}${PWD/#$HOME/~}%{$reset_color%} \n> '
-#export PROMPT=$'\n$(rvm_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
-#   export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
   export RPROMPT=$'$(rvm_prompt)$(git_dirty)$(need_push)'
 }
 
