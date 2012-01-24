@@ -86,6 +86,8 @@ function! StripWhitespace ()
     exec ':%s/ \+$//gc'
 endfunction
 map <leader>s :call StripWhitespace ()<CR>
+map <leader>t :CommandT<CR>
+
 
 " Pathogen
 call pathogen#infect()
