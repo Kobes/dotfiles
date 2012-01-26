@@ -95,3 +95,7 @@ call pathogen#infect()
 " Nerdtree  
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_gui_startup = 0
+
+" Notes.vim
+let g:notes_directory = '~/Dropbox/Notities/'
+let g:notes_suffix = '.txt'
