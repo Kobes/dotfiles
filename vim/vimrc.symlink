@@ -91,3 +91,7 @@ map <leader>t :CommandT<CR>
 
 " Pathogen
 call pathogen#infect()
+
+" Nerdtree  
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
