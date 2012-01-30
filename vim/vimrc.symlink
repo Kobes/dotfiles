@@ -99,3 +99,7 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 " Notes.vim
 let g:notes_directory = '~/Dropbox/Notities/'
 let g:notes_suffix = '.txt'
+
+" Tagbar
+nmap <Leader>b :TagbarToggle<CR>
+
