@@ -1,4 +1,4 @@
-setopt menucomplete
+# setopt menucomplete
 
 # matches case insensitive for lowercase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
