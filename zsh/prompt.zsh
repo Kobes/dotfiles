@@ -6,6 +6,10 @@ git_branch() {
   echo $(/usr/bin/git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
 }
 
+git_remote() {
+  echo $(/usr/bin/git config branch.$(git_branch).remote 2>/dev/null)
+}
+
 git_dirty() {
   st=$(/usr/bin/git status 2>/dev/null | tail -n 1)
   if [[ $st == "" ]]
@@ -28,7 +32,7 @@ git_prompt_info () {
 }
 
 unpushed () {
-  /usr/bin/git cherry -v origin/$(git_branch) 2>/dev/null
+  /usr/bin/git cherry -v $(git_remote)/$(git_branch) 2>/dev/null
 }
 
 need_push () {
