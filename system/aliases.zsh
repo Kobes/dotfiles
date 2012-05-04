@@ -10,3 +10,4 @@ then
 fi
 
 alias flushdns="dscacheutil -flushcache"
+alias server='open http://localhost:8000 && python -m SimpleHTTPServer'
