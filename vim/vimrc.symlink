@@ -103,3 +103,5 @@ let g:notes_suffix = '.txt'
 " Tagbar
 nmap <Leader>b :TagbarToggle<CR>
 
+" Vimroom development
+let g:vimroom_development = 1
