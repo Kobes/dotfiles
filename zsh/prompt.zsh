@@ -86,7 +86,8 @@ collapse_pwd(){
 
 export PROMPT=$'\n%{$fg_bold[cyan]%}%n%{$reset_color%} at %{$fg_bold[magenta]%}%m%{$reset_color%} in %{$fg_bold[yellow]%}${PWD/#$HOME/~}%{$reset_color%} \n> '
 set_prompt () {
-  export RPROMPT=$'$(rvm_prompt)$(git_dirty)$(need_push)'
+  #export RPROMPT=$'$(rvm_prompt)$(git_dirty)$(need_push)'
+  export RPROMPT=$'$(git_dirty)$(need_push)'
 }
 
 precmd() {
