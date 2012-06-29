@@ -47,11 +47,10 @@ need_push () {
   fi
 }
 
-rvm_prompt(){
-  if $(which rvm &> /dev/null)
+rbenv_prompt(){
+  if $(which rbenv &> /dev/null)
   then
-# 	  echo "%{$fg_bold[white]%}$(rvm tools identifier)%{$reset_color%}"
-	  echo "%{$fg_bold[white]%}$(~/.rvm/bin/rvm-prompt)%{$reset_color%}"
+	  echo "%{$fg_bold[white]%}$(rbenv version-name)%{$reset_color%}"
 	else
 	  echo ""
   fi
@@ -87,7 +86,7 @@ collapse_pwd(){
 export PROMPT=$'\n%{$fg_bold[cyan]%}%n%{$reset_color%} at %{$fg_bold[magenta]%}%m%{$reset_color%} in %{$fg_bold[yellow]%}${PWD/#$HOME/~}%{$reset_color%} \n> '
 set_prompt () {
   #export RPROMPT=$'$(rvm_prompt)$(git_dirty)$(need_push)'
-  export RPROMPT=$'$(git_dirty)$(need_push)'
+  export RPROMPT=$'$(rbenv_prompt)$(git_dirty)$(need_push)'
 }
 
 precmd() {
