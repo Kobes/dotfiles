@@ -1,0 +1,6 @@
+--type-set=scss=.scss
+--type-set=sass=.sass
+--type-set=less=.less
+--type-set=coffee=.coffee
+--type-set=haml=.haml,.hml
+
