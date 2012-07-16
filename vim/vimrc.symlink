@@ -106,6 +106,3 @@ nmap <Leader>b :TagbarToggle<CR>
 " Vimroom development
 let g:vimroom_development = 1
 
-" Upsize
-set lines=50
-set columns=160

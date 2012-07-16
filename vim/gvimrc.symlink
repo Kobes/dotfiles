@@ -1,6 +1,7 @@
 colorscheme molokai
 set anti "anti-aliasing
-set lines=36 columns=120
+set lines=50
+set columns=160
 set guioptions=egmrt
 set guifont=Monaco:h12
 
