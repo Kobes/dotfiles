@@ -24,3 +24,6 @@ for config_file ($ZSH/**/completion.sh) source $config_file
 # fix quotations for urls
 autoload -U url-quote-magic
 zle -N self-insert url-quote-magic
+
+# vi mode
+bindkey -v
