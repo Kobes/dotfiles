@@ -9,6 +9,7 @@ set directory=~/.vim/backup
 
 set autoindent             " automatic indent new lines
 set smartindent            " be smart about it
+filetype indent on
 inoremap # X<BS>#
 set nowrap                 " do not wrap lines
 set softtabstop=2          " yep, two
