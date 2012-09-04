@@ -87,13 +87,40 @@ function! StripWhitespace ()
     exec ':%s/ \+$//gc'
 endfunction
 map <leader>s :call StripWhitespace ()<CR>
-map <leader>t :CommandT<CR>
 
+
+" Hightlight trailing whitespace
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+"match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+"
+" " Show trailing whitespace and spaces before a tab:
+" match ExtraWhitespace /\s\+$\| \+\ze\t/
+"
+" " Show tabs that are not at the start of a line:
+" match ExtraWhitespace /[^\t]\zs\t\+/
+"
+" " Show spaces used for indenting (so you use only tabs for indenting).
+" match ExtraWhitespace /^\t*\zs \+/
+"
+" " Switch off :match highlighting.
+" "match
+
+
+
+
+" CommandT
+map <leader>t :CommandT<CR>
 
 " Pathogen
 call pathogen#infect()
 
-" Nerdtree  
+" Nerdtree
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
