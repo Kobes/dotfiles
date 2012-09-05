@@ -40,3 +40,6 @@
 [submodule "vim/vim.symlink/bundle/supertab"]
 	path = vim/vim.symlink/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule "vim/vim.symlink/bundle/hemisu"]
+	path = vim/vim.symlink/bundle/hemisu
+	url = https://github.com/noahfrederick/Hemisu
