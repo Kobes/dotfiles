@@ -43,3 +43,6 @@
 [submodule "vim/vim.symlink/bundle/hemisu"]
 	path = vim/vim.symlink/bundle/hemisu
 	url = https://github.com/noahfrederick/Hemisu
+[submodule "vim/vim.symlink/bundle/fugitive"]
+	path = vim/vim.symlink/bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
