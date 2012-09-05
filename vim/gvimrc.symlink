@@ -1,4 +1,5 @@
-colorscheme molokai
+colorscheme kuroir
+
 set anti "anti-aliasing
 set lines=50
 set columns=160
