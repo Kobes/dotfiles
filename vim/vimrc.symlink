@@ -90,12 +90,14 @@ map <leader>s :call StripWhitespace ()<CR>
 
 
 " Hightlight trailing whitespace
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 "match ExtraWhitespace /\s\+$/
+
+highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 " autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 "
@@ -134,3 +136,5 @@ nmap <Leader>b :TagbarToggle<CR>
 " Vimroom development
 let g:vimroom_development = 1
 
+" Filtetype plugin
+filetype plugin on
