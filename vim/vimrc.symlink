@@ -109,3 +109,7 @@ let g:vimroom_development = 1
 
 " Filtetype plugin
 filetype plugin on
+
+" Ack shortcuts: ,q closes quicfix, :ack links to :Ack
+nmap <silent> <Leader>q :ccl<CR>
+cabbr ack Ack
