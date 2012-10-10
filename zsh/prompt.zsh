@@ -37,7 +37,7 @@ unpushed () {
 
 need_push () {
   if [[ $(unpushed) == "" ]]
-  then 
+  then
     if [[ $(git_prompt_info) != "" ]]
     then
       echo " %{$fg_bold[white]%}✔%{$reset_color%}"
