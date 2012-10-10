@@ -4,7 +4,8 @@ set anti "anti-aliasing
 set lines=50
 set columns=160
 set guioptions=egmrt
-set guifont=Inconsolata-g:h12
+" set guifont=Inconsolata-g:h12
+set guifont=Source\ Code\ Pro:h14
 
 " Command + t to :CommandT
 if has("gui_macvim")
