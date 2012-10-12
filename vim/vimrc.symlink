@@ -97,13 +97,6 @@ call pathogen#infect()
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
-" Notes.vim
-let g:notes_directory = '~/Dropbox/Notities/'
-let g:notes_suffix = '.txt'
-
-" Tagbar
-nmap <Leader>b :TagbarToggle<CR>
-
 " Vimroom development
 let g:vimroom_development = 1
 
@@ -113,3 +106,10 @@ filetype plugin on
 " Ack shortcuts: ,q closes quicfix, :ack links to :Ack
 nmap <silent> <Leader>q :ccl<CR>
 cabbr ack Ack
+
+" Map for hiding highlights short
+nmap <silent> <Leader>/ :noh<CR>
+
+" visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
