@@ -113,3 +113,6 @@ nmap <silent> <Leader>/ :noh<CR>
 " visual shifting (does not exit Visual mode)
 vnoremap < <gv
 vnoremap > >gv
+
+" Fancy powerline
+let g:Powerline_symbols = 'fancy'
