@@ -1,1 +1,12 @@
 set -g prefix ^a
+
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+bind r source-file ~/.tmux.conf
+
+set-option -g default-command "reattach-to-user-namespace -l zsh"
+
+set-window-option -g automatic-rename off # auto name

@@ -52,3 +52,12 @@
 [submodule "vim/vim.symlink/bundle/vim-powerline"]
 	path = vim/vim.symlink/bundle/vim-powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/vim.symlink/bundle/buffergator"]
+	path = vim/vim.symlink/bundle/buffergator
+	url = git://github.com/jeetsukumaran/vim-buffergator.git
+[submodule "vim/vim.symlink/bundle/syntastic"]
+	path = vim/vim.symlink/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
+[submodule "vim/vim.symlink/bundle/surround"]
+	path = vim/vim.symlink/bundle/surround
+	url = git://github.com/tpope/vim-surround.git

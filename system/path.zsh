@@ -1,3 +1,3 @@
-export PATH="$ZSH/bin:/usr/local/bin:/usr/local/sbin:.:bin:$HOME/.sfs:$PATH"
+export PATH="$ZSH/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:.:bin:$HOME/.sfs:$PATH:/usr/local/share/npm/bin"
 
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"

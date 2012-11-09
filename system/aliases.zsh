@@ -10,4 +10,5 @@ then
 fi
 
 alias flushdns="dscacheutil -flushcache"
-alias server='open http://localhost:8000 && python -m SimpleHTTPServer'
+alias pyserver='open http://localhost:8000 && python -m SimpleHTTPServer'
+alias server="ruby -rwebrick -e'server = WEBrick::HTTPServer.new(:Port => 3000, :DocumentRoot => Dir.pwd);trap \"INT\" do server.shutdown end;server.start'"

@@ -114,5 +114,17 @@ nmap <silent> <Leader>/ :noh<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+" don't update register on deleting a character
+noremap x "_x
+
 " Fancy powerline
 let g:Powerline_symbols = 'fancy'
+
+" CommandT beats bufexplorer
+"if !exists('g:buffergator_suppress_keymaps') || !g:buffergator_suppress_keymaps
+let g:buffergator_suppress_keymaps = 1
+nnoremap <silent> <Leader><Leader> :BuffergatorToggle<CR>
+nnoremap <leader>t :CommandT<CR>
+
+" Forces ruby 1.9 syntax checking
+let g:syntastic_ruby_exec = 'ruby19'
