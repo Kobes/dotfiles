@@ -1,7 +1,7 @@
 " Vim color file
 " Converted from Textmate theme Kuroir Theme using Coloration v0.3.2 (http://github.com/sickill/coloration)
 
-set background=dark
+set background=light
 highlight clear
 
 if exists("syntax_on")
@@ -15,7 +15,7 @@ hi Visual ctermfg=NONE ctermbg=221 cterm=NONE guifg=NONE guibg=#efc666 gui=NONE
 hi CursorLine ctermfg=NONE ctermbg=253 cterm=NONE guifg=NONE guibg=#d6d7d6 gui=NONE
 hi CursorColumn ctermfg=NONE ctermbg=253 cterm=NONE guifg=NONE guibg=#d6d7d6 gui=NONE
 hi ColorColumn ctermfg=NONE ctermbg=253 cterm=NONE guifg=NONE guibg=#d6d7d6 gui=NONE
-hi LineNr ctermfg=245 ctermbg=253 cterm=NONE guifg=#8f908f guibg=#d6d7d6 gui=NONE
+hi LineNr ctermfg=245 ctermbg=253 cterm=NONE guifg=#b4b5b4 guibg=#e8e9e8 gui=NONE
 hi VertSplit ctermfg=249 ctermbg=249 cterm=NONE guifg=#b4b5b4 guibg=#b4b5b4 gui=NONE
 hi MatchParen ctermfg=237 ctermbg=NONE cterm=NONE guifg=#363636 guibg=NONE gui=NONE
 hi StatusLine ctermfg=237 ctermbg=249 cterm=bold guifg=#363636 guibg=#b4b5b4 gui=bold

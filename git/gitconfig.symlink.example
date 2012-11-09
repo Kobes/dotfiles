@@ -8,24 +8,16 @@
 # install this to the correct location by running the project's main `rake`
 # task.
 [user]
-        name = Zach Holman
-        email = your@example.com
-[alias]
-        co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributers = !$ZSH/bin/git-rank-contributers
-        count   = !git shortlog -sn
-[color]
-        diff = auto
-        status = auto
-        branch = auto
-[core]
-        excludesfile = ~/.gitignore
-        editor = mate -w
-[apply]
-        whitespace = nowarn
+	name = Stijn Meurkens
+	email = meurkens@gmail.com
 [github]
-        user = holman
-[mergetool]
-        keepBackup = false
+	user = meurkens
+	token = MY_TOKEN
+[heroku]
+	remote = origin
+[color]
+	ui = true
+[alias]
+  tree = log --graph --oneline --decorate
+  typo = !git commit -a -m"Typo" && git push
+	root = !pwd
