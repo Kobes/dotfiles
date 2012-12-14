@@ -1,4 +1,4 @@
-set -g prefix ^a
+set -g prefix ^w
 
 bind h select-pane -L
 bind j select-pane -D

@@ -61,3 +61,6 @@
 [submodule "vim/vim.symlink/bundle/surround"]
 	path = vim/vim.symlink/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
+[submodule "vim/vim.symlink/bundle/slim"]
+	path = vim/vim.symlink/bundle/slim
+	url = git://github.com/bbommarito/vim-slim.git

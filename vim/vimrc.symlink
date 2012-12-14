@@ -114,9 +114,6 @@ nmap <silent> <Leader>/ :noh<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-" don't update register on deleting a character
-noremap x "_x
-
 " Fancy powerline
 let g:Powerline_symbols = 'fancy'
 
