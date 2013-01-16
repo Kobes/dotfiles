@@ -64,3 +64,6 @@
 [submodule "vim/vim.symlink/bundle/slim"]
 	path = vim/vim.symlink/bundle/slim
 	url = git://github.com/bbommarito/vim-slim.git
+[submodule "vim/vim.symlink/bundle/vim-monokai-refined"]
+	path = vim/vim.symlink/bundle/vim-monokai-refined
+	url = git://github.com/jaromero/vim-monokai-refined.git
