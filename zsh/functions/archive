@@ -1,0 +1,14 @@
+local FILENAME=$1
+local TARGETFILENAME=$2
+local DATE=$(date +"%Y%m%d")
+local ARCHIVE_DIR="$HOME/Dropbox/Archief/"
+if [[ ! -f $1 ]]; then
+  echo "File not found."
+  return
+fi
+if [[ $2 -eq "" ]]; then
+  TARGETFILENAME=$FILENAME
+fi
+TARGETFILENAME=$ARCHIVE_DIR$DATE" "$TARGETFILENAME
+mv $FILENAME $TARGETFILENAME
+echo $TARGETFILENAME
