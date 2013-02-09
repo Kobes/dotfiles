@@ -6,7 +6,7 @@ if [[ ! -f $1 ]]; then
   echo "File not found."
   return
 fi
-if [[ $2 -eq "" ]]; then
+if [[ -z $TARGETFILENAME ]]; then
   TARGETFILENAME=$FILENAME
 fi
 TARGETFILENAME=$ARCHIVE_DIR$DATE" "$TARGETFILENAME
