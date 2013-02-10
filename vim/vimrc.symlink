@@ -125,3 +125,6 @@ nnoremap <leader>t :CommandT<CR>
 
 " Forces ruby 1.9 syntax checking
 let g:syntastic_ruby_exec = 'ruby19'
+
+color hemisu
+syntax on
