@@ -1,130 +1,28 @@
-" Directories for swp files
-set noswapfile
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
+"==========================================================
+" Vundle
+"==========================================================
+set nocompatible
+filetype off
 
-" ----------------------------------------------------------------------------
-"  Text Formatting
-" ----------------------------------------------------------------------------
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-set autoindent             " automatic indent new lines
-set smartindent            " be smart about it
-filetype indent on
-inoremap # X<BS>#
-set nowrap                 " do not wrap lines
-set softtabstop=2          " yep, two
-set shiftwidth=2           " ..
+Bundle 'gmarik/vundle'
+Bundle 'acarapetis/vim-github-theme'
+Bundle 'noahfrederick/Hemisu'
+
+"==========================================================
+" Settings
+"==========================================================
+syntax enable
+filetype plugin indent on
+
+set nowrap
 set tabstop=2
-set expandtab              " expand tabs to spaces
-set nosmarttab             " fuck tabs
-set formatoptions+=n       " support for numbered/bullet lists
-"set textwidth=80           " wrap at 80 chars by default
-set virtualedit=block      " allow virtual edit in visual block ..
+set shiftwidth=2
+set expandtab
 
-" ----------------------------------------------------------------------------
-"  Remapping
-" ----------------------------------------------------------------------------
-
-" lead with ,
-let mapleader = ","
-
-" exit to normal mode with 'jj'
-inoremap jj <ESC>
-
-
-" reflow paragraph with Q in normal and visual mode
-nnoremap Q gqap
-vnoremap Q gq
-
-" sane movement with wrap turned on
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
-nnoremap <Down> gj
-nnoremap <Up> gk
-vnoremap <Down> gj
-vnoremap <Up> gk
-inoremap <Down> <C-o>gj
-inoremap <Up> <C-o>gk
-
-" ----------------------------------------------------------------------------
-"  UI
-" ----------------------------------------------------------------------------
-
-set ruler                  " show the cursor position all the time
-set noshowcmd              " don't display incomplete commands
-set nolazyredraw           " turn off lazy redraw
-set number                 " line numbers
-set wildmenu               " turn on wild menu
-set wildmode=list:longest,full
-set ch=2                   " command line height
-set backspace=2            " allow backspacing over everything in insert mode
-set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
-set shortmess=filtIoOA     " shorten messages
-set report=0               " tell us about changes
-set nostartofline          " don't jump to the start of line when scrolling
-
-
-" ----------------------------------------------------------------------------
-" Visual Cues
-" ----------------------------------------------------------------------------
-
-set showmatch              " brackets/braces that is
-set mat=5                  " duration to show matching brace (1/10 sec)
-set incsearch              " do incremental searching
-set laststatus=2           " always show the status line
-set ignorecase             " ignore case when searching
-set hlsearch               " highlight searches
-set visualbell             " shut the fuck up
-
-
-" ---------------------------------------------------------------------------
-"  Strip all trailing whitespace in file
-" ---------------------------------------------------------------------------
-
-" TrailerTrash
-nmap <silent> <Leader>sa :call KillTrailerTrash()<CR>
-nmap <silent> <Leader>s :call ShowTrailerTrash()<CR>
-
-" CommandT
-map <leader>t :CommandT<CR>
-
-" Pathogen
-call pathogen#infect()
-
-" Nerdtree
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
-let g:nerdtree_tabs_open_on_gui_startup = 0
-
-" Vimroom development
-let g:vimroom_development = 1
-
-" Filtetype plugin
-filetype plugin on
-
-" Ack shortcuts: ,q closes quicfix, :ack links to :Ack
-nmap <silent> <Leader>q :ccl<CR>
-cabbr ack Ack
-
-" Map for hiding highlights short
-nmap <silent> <Leader>/ :noh<CR>
-
-" visual shifting (does not exit Visual mode)
-vnoremap < <gv
-vnoremap > >gv
-
-" Fancy powerline
-let g:Powerline_symbols = 'fancy'
-
-" CommandT beats bufexplorer
-"if !exists('g:buffergator_suppress_keymaps') || !g:buffergator_suppress_keymaps
-let g:buffergator_suppress_keymaps = 1
-nnoremap <silent> <Leader><Leader> :BuffergatorToggle<CR>
-nnoremap <leader>t :CommandT<CR>
-
-" Forces ruby 1.9 syntax checking
-let g:syntastic_ruby_exec = 'ruby19'
+set laststatus=2                  "Show statusbar
+set number                        "Linenumbers
 
 color hemisu
-syntax on
