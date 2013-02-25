@@ -1,5 +1,6 @@
 vim/vim.symlink/.netrwhist
 git/gitconfig.symlink
 vim/vim.symlink/backup/*
+vim/vim.symlink/bundle/*
 !index.html
 .rake_tasks~

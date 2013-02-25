@@ -8,12 +8,19 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'acarapetis/vim-github-theme'
 Bundle 'noahfrederick/Hemisu'
+Bundle 'ervandew/supertab'
+Bundle 'mileszs/ack.vim'
 
 "==========================================================
 " Settings
 "==========================================================
+
+" No swapfiles
+set noswapfile
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+
 syntax enable
 filetype plugin indent on
 
