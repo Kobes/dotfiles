@@ -11,25 +11,47 @@ Bundle 'gmarik/vundle'
 Bundle 'noahfrederick/Hemisu'
 Bundle 'ervandew/supertab'
 Bundle 'mileszs/ack.vim'
+Bundle 'tpope/vim-rails'
+Bundle 'meurkens/vimroomx'
+Bundle 'csexton/trailertrash.vim'
 
 "==========================================================
 " Settings
 "==========================================================
+
+let mapleader=","
 
 " No swapfiles
 set noswapfile
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
+" Syntax
 syntax enable
 filetype plugin indent on
+set showmatch
+set mat=5
+set autoindent
+set smartindent
 
-set nowrap
+" Tab options
 set tabstop=2
 set shiftwidth=2
+set softtabstop=2
 set expandtab
+set nosmarttab
 
+" Search options
+set hlsearch
+nmap <silent> <Leader>/ :noh<CR>
+set ignorecase
+
+" Visual layout
 set laststatus=2                  "Show statusbar
 set number                        "Linenumbers
+set nowrap
+
+
+set visualbell
 
 color hemisu
