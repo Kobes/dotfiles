@@ -12,9 +12,11 @@ Bundle 'noahfrederick/Hemisu'
 Bundle 'ervandew/supertab'
 Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-rails'
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'meurkens/vimroomx'
 Bundle 'csexton/trailertrash.vim'
 Bundle 'tomasr/molokai'
+Bundle 'wincent/Command-T'
 
 "==========================================================
 " Settings
@@ -35,6 +37,10 @@ set mat=5
 set autoindent
 set smartindent
 
+" Autocomplete commands
+set wildmenu
+set wildmode=list:longest,full
+
 " Tab options
 set tabstop=2
 set shiftwidth=2
@@ -52,7 +58,29 @@ set laststatus=2                  "Show statusbar
 set number                        "Linenumbers
 set nowrap
 
-
 set visualbell
 
-color molokai
+if has("gui_running")
+  color molokai
+else
+  color hemisu
+end
+
+"==========================================================
+" Mappings
+"==========================================================
+
+" Trailer trash
+map <leader>s :Trailer<cr>
+map <leader>sa :Trim<cr>
+
+" reflow paragraph with Q in normal and visual mode
+nnoremap Q gqap
+vnoremap Q gq
+
+" sane movement with wrap turned on
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+

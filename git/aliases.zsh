@@ -17,14 +17,24 @@
 # fi
 alias git=hub
 
+alias g="git"
+compdef g=git
+
 alias gl="git log --branches --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gp='git push origin HEAD'
+compdef _git gp="git-push"
 alias gd='git diff'
+compdef _git gd="git-diff"
 alias gf="git fetch"
+compdef _git gf="git-fetch"
 alias gc='git commit'
+compdef _git gc="git-commit"
 alias gca='git commit -a'
+compdef _git gca="git-commit"
 alias gco='git checkout'
+compdef _git gco="git-checkout"
 alias gb='git branch'
+compdef _git gb="git-branch"
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gr='cd $(git root)'
