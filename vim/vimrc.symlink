@@ -17,6 +17,7 @@ Bundle 'meurkens/vimroomx'
 Bundle 'csexton/trailertrash.vim'
 Bundle 'tomasr/molokai'
 Bundle 'wincent/Command-T'
+Bundle 'kchmck/vim-coffee-script'
 
 "==========================================================
 " Settings
