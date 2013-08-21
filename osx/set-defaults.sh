@@ -6,3 +6,6 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # Ultra-fast keyboard repeats
 defaults write NSGlobalDomain KeyRepeat -int 0
+
+# Stop headphones button from loading iTunes
+launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
