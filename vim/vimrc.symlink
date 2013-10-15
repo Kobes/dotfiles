@@ -7,17 +7,18 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'noahfrederick/Hemisu'
+Bundle 'csexton/trailertrash.vim'
 Bundle 'ervandew/supertab'
+Bundle 'gmarik/vundle'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'meurkens/vimroomx'
 Bundle 'mileszs/ack.vim'
+Bundle 'noahfrederick/Hemisu'
+Bundle 'tomasr/molokai'
+Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'meurkens/vimroomx'
-Bundle 'csexton/trailertrash.vim'
-Bundle 'tomasr/molokai'
 Bundle 'wincent/Command-T'
-Bundle 'kchmck/vim-coffee-script'
 
 "==========================================================
 " Settings
@@ -58,6 +59,8 @@ set ignorecase
 set laststatus=2                  "Show statusbar
 set number                        "Linenumbers
 set nowrap
+
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 set visualbell
 
