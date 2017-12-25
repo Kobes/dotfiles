@@ -33,3 +33,4 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
+set t_Co=256
