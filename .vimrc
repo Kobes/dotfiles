@@ -2,7 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'w0ng/vim-hybrid'
+Plug 'noahfrederick/vim-noctu'
 
 " Clojure
 Plug 'tpope/vim-fireplace'
@@ -12,7 +12,7 @@ Plug 'losingkeys/vim-niji'
 call plug#end()
 
 set background=dark
-colorscheme hybrid
+colorscheme noctu
 
 let mapleader = ","
 map <leader>w :w<enter>
