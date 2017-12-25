@@ -1,2 +1,3 @@
+.ssh/*
 .dotfiles.git
 .vim/plugged
