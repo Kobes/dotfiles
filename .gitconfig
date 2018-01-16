@@ -3,3 +3,5 @@
 	name = Stijn Meurkens
 [core]
 	editor = vim
+[alias]
+  untracked = ls-files --directory --others --exclude-standard
