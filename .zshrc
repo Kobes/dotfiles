@@ -1,8 +1,8 @@
 eval "$(rbenv init -)"
-export PATH="./bin:/usr/local/opt/postgresql@9.6/bin:$PATH"
+export PATH="./bin:./node_modules/.bin:/usr/local/opt/postgresql@9.6/bin:$PATH"
 export EDITOR="vim"
 
-alias vim="mvim -v"
+# alias vim="mvim -v"
 alias vi=vim
 alias ls="ls -G"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
@@ -33,3 +33,6 @@ setopt promptsubst
 PROMPT='
 ${PWD/#$HOME/~}
 > '
+
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.git}/*" 2> /dev/null'
+
