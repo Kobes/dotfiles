@@ -15,9 +15,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
 " Clojure
-Plug 'tpope/vim-fireplace'
 Plug 'guns/vim-clojure-static'
 Plug 'losingkeys/vim-niji'
+
+Plug 'slim-template/vim-slim'
 
 call plug#end()
 
@@ -34,10 +35,12 @@ set laststatus=2                  "Show statusbar
 set number
 set nowrap
 set ttyfast
-" set winwidth=90 "active window is at least this pixels wide
-" autocmd WinEnter * wincmd =
-" autocmd WinLeave * wincmd =
-autocmd VimResized * wincmd =
+
+augroup resizes
+  autocmd!
+  autocmd VimResized * wincmd =
+augroup END
+
 let g:ale_sign_column_always = 1
 
 let mapleader = ","
@@ -51,12 +54,13 @@ nmap <silent> <Leader>/ :noh<CR>
 map <leader>d gcc
 vmap <leader>d gc
 
+" Map reload vimrc
+map <leader>vi :source ~/.vimrc<CR>
+
 " Map vimux
-map <silent> <leader>r :call RunSpec()<CR>
+map <silent> <leader>rr :call RunSpec()<CR>
 " nmap <silent> <CR> :call RunSpec()<CR>
 " autocmd CmdwinEnter * nunmap <silent> <CR>
-map <silent> <leader>vq :call VimuxCloseRunner()<CR>
-
 function! RunSpec()
   if match(bufname("%"), "_spec.rb$") != -1
     let s:current_spec = bufname("%") . ":" . line(".")
@@ -126,3 +130,67 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 map <leader>s :%s/\s\+$//g<CR>
+
+" Clojure
+function! VimuxSlime()
+  call VimuxStartRepl()
+  call VimuxRunCommand(@v)
+endfunction
+
+function! VimuxStartRepl()
+  if !exists("g:VimuxRunnerIndex") || _VimuxHasRunner(g:VimuxRunnerIndex) == -1
+    call VimuxOpenRunner()
+  endif
+
+  call _VimuxUnzoomVim()
+
+  let l:parent_pid = substitute(_VimuxTmux("display-message -p -t ".g:VimuxRunnerIndex." '#{pane_pid}'"), '\n\+$', '', '')
+  let l:child_pid = substitute(system("pgrep -P ".l:parent_pid), '\n\+$', '', '')
+  let l:running_command = split(system("ps -p ".l:child_pid." -o command="), "/")[-1]
+
+  let l:repl_command = _VimuxReplCommand()
+
+  if substitute(l:running_command, '\n\+$', '', '') == l:repl_command
+    return
+  endif
+
+  call VimuxRunCommand(l:repl_command)
+endfunction
+
+function! VimuxZoomVim()
+  call _VimuxTmux("resize-pane -Z")
+endfunction
+
+function! VimuxZoomRunner2()
+  call _VimuxUnzoomVim()
+  call VimuxZoomRunner()
+endfunction
+
+function! _VimuxReplCommand()
+  let l:commandFile = ".repl-command"
+  if filereadable(l:commandFile)
+    return readfile(l:commandFile)[0]
+  else
+    return "lein repl"
+  endif
+endfunction
+
+function! _VimuxUnzoomVim()
+  if exists("g:VimuxRunnerIndex")
+    call _VimuxTmux("select-pane -t ".g:VimuxRunnerIndex)
+    call _VimuxTmux("last-pane")
+  endif
+endfunction
+
+augroup clojure
+  autocmd!
+
+  autocmd FileType clojure nmap <Leader>rs :call VimuxStartRepl()<CR>
+  autocmd FileType clojure nmap <leader>rz :call VimuxZoomRunner2()<CR>
+  autocmd FileType clojure nmap <Leader>rv :call VimuxZoomVim()<CR>
+  autocmd FileType clojure nmap <leader>rq :call VimuxCloseRunner()<CR>
+
+  autocmd FileType clojure vmap <Leader>rl "vy :call VimuxSlime()<CR>
+  autocmd FileType clojure nmap <Leader>rl va(<Leader>rl<CR>
+  autocmd FileType clojure nmap <Leader>ro vap<Leader>rl<CR>
+augroup END
