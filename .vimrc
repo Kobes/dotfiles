@@ -132,9 +132,11 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 map <leader>s :%s/\s\+$//g<CR>
 
 " Clojure
-function! VimuxSlime()
+function! VimuxSlime(...)
+  let l:cmd = a:0 == 1 ? a:1 : @v
+
   call VimuxStartRepl()
-  call VimuxRunCommand(@v)
+  call VimuxRunCommand(l:cmd)
 endfunction
 
 function! VimuxStartRepl()
@@ -182,15 +184,35 @@ function! _VimuxUnzoomVim()
   endif
 endfunction
 
+function! VimuxOpenNamespace()
+  let l:cmd = "(in-ns '"._GetNamespace().")"
+  call VimuxSlime(l:cmd)
+endfunction
+
+function! _GetNamespace()
+  let l:fileLength = line("$")
+  let l:nr = 1
+
+  while l:nr <= l:fileLength
+    let l:line = getline(l:nr)
+    let l:match = matchlist(l:line, '\v\s*\(s*ns\s+(\S+)\s*')
+    if !empty(l:match)
+      return l:match[1]
+    endif
+    let l:nr += 1
+  endwhile
+endfunction
+
 augroup clojure
   autocmd!
 
-  autocmd FileType clojure nmap <Leader>rs :call VimuxStartRepl()<CR>
-  autocmd FileType clojure nmap <leader>rz :call VimuxZoomRunner2()<CR>
-  autocmd FileType clojure nmap <Leader>rv :call VimuxZoomVim()<CR>
-  autocmd FileType clojure nmap <leader>rq :call VimuxCloseRunner()<CR>
+  autocmd FileType clojure nmap <silent> <Leader>rs :call VimuxStartRepl()<CR>
+  autocmd FileType clojure nmap <silent> <leader>rz :call VimuxZoomRunner2()<CR>
+  autocmd FileType clojure nmap <silent> <Leader>rv :call VimuxZoomVim()<CR>
+  autocmd FileType clojure nmap <silent> <leader>rq :call VimuxCloseRunner()<CR>
 
-  autocmd FileType clojure vmap <Leader>rl "vy :call VimuxSlime()<CR>
-  autocmd FileType clojure nmap <Leader>rl va(<Leader>rl<CR>
-  autocmd FileType clojure nmap <Leader>ro vap<Leader>rl<CR>
+  autocmd FileType clojure vmap <silent> <Leader>rl "vy :call VimuxSlime()<CR>
+  autocmd FileType clojure nmap <silent> <Leader>rl va(<Leader>rl<CR>
+  autocmd FileType clojure nmap <silent> <Leader>ro vap<Leader>rl<CR>
+  autocmd FileType clojure nmap <silent> <Leader>rn :call VimuxOpenNamespace()<CR>
 augroup END
